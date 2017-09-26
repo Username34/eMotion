@@ -22,5 +22,15 @@ return [
             'pass' => 'emotion',
             'database' => 'emotion'
         ],
+        'db' => [
+            'driver' => 'mysql',
+            'host' => '149.202.51.26',
+            'database' => 'emotion',
+            'username' => 'user',
+            'password' => 'emotion',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ]
     ],
 ];
