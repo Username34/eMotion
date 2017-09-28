@@ -1,6 +1,9 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
+require '../src/model/TypeVehicles.php';
+require '../src/model/Vehicles.php';
+require '../src/model/Offers.php';
 session_start();
 
 // Instantiate the app
@@ -13,6 +16,14 @@ require __DIR__ . '/../src/dependencies.php';
 // Register routes
 require __DIR__ . '/../src/routes.php';
 
+$container = $app->getContainer();
+$capsule = new Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container->get('settings')['db']);
+$capsule->bootEloquent();
 
+$capsule->getContainer()->singleton(
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    App\Exceptions\Handler::class
+);
 // Run app
 $app->run();

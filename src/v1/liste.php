@@ -5,7 +5,7 @@ use App\Controleur;
 $app->get('/liste', function (Request $request, Response $response, $args) {
     $data = $request->getParsedBody();
 
-    $db = connect_db($server = $this['settings']["mysql"]["server"]
+   /* $db = connect_db($server = $this['settings']["mysql"]["server"]
         ,$this['settings']["mysql"]["user"]
         ,$this['settings']["mysql"]["pass"]
         ,$this['settings']["mysql"]["database"]);
@@ -14,11 +14,11 @@ $app->get('/liste', function (Request $request, Response $response, $args) {
     $result = $db->query($sql);
     while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
             $data[] = $row;
-    }
+    }*/
 
 
 
-    return $response->withJson(['success' => true, 'data' => $data]);
+    return $response->withJson(['success' => true, 'data' => "test"]);
 });
 
 function connect_db($server, $user, $pass, $database) {
