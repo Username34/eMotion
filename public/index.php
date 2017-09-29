@@ -4,6 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 require '../src/model/TypeVehicles.php';
 require '../src/model/Vehicles.php';
 require '../src/model/Offers.php';
+require '../src/model/Users.php';
 session_start();
 
 // Instantiate the app
