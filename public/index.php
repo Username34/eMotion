@@ -1,9 +1,10 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ .'../src/model/Vehicles.php';
-require __DIR__ .'../src/model/Offers.php';
-require __DIR__ .'../src/model/Users.php';
+require '../src/model/Vehicles.php';
+require '../src/model/Offers.php';
+require '../src/model/Users.php';
+require '../src/model/Bills.php';
 session_start();
 
 // Instantiate the app

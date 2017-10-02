@@ -6,3 +6,4 @@ require __DIR__ . '/v1/vehicle.php';
 require __DIR__ . '/v1/liste.php';
 require __DIR__ . '/v1/offer.php';
 require __DIR__ . '/v1/user.php';
+require __DIR__ . '/v1/bill.php';
