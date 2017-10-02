@@ -38,4 +38,10 @@ $app->group('/user', function () use ($app) {
         }
         return $response->withJson(['success' => true]);
     });
+
+    $app->post('/test', function (Request $request, Response $response, $args) {
+        $data = $request->getParsedBody();
+        var_dump($data);
+        return $response->withJson(['success' => true, 'data' => $data]);
+    });
 });
