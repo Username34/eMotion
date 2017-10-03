@@ -1,10 +1,14 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
+//model
 require '../src/model/Vehicles.php';
 require '../src/model/Offers.php';
 require '../src/model/Users.php';
 require '../src/model/Bills.php';
+
+//class
+require '../src/class/Sprite.php';
 session_start();
 
 // Instantiate the app
