@@ -6,9 +6,10 @@ require '../src/model/Vehicles.php';
 require '../src/model/Offers.php';
 require '../src/model/Users.php';
 require '../src/model/Bills.php';
-
+require '../src/model/ApiClass.php';
 //class
 require '../src/class/Sprite.php';
+require '../src/class/Api.php';
 session_start();
 
 // Instantiate the app

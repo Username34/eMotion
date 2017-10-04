@@ -4,6 +4,10 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 $app->group('/user', function () use ($app) {
     $app->post('/add', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
+        $api = new Api();
+        if (!$api->checkout($data['api_key'])){
+            return $response->withJson(['success' => false]);
+        }
         $dev = new Users();
         $dev->name = $data['name'];
         $dev->surname = $data['surname'];
@@ -26,22 +30,24 @@ $app->group('/user', function () use ($app) {
 
     $app->post('/delete', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
+        $api = new Api();
+        if (!$api->checkout($data['api_key'])){
+            return $response->withJson(['success' => false]);
+        }
         Users::where('iduser', $data['id'])->delete();
         return $response->withJson(['success' => true]);
     });
 
     $app->post('/update', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
+        $api = new Api();
+        if (!$api->checkout($data['api_key'])){
+            return $response->withJson(['success' => false]);
+        }
         foreach ($data['data'] as $key => $item){
             Users::where('iduser', $data['id'])
                 ->update([$key => $item]);
         }
         return $response->withJson(['success' => true]);
-    });
-
-    $app->post('/test', function (Request $request, Response $response, $args) {
-        $data = $request->getParsedBody();
-        var_dump($data);
-        return $response->withJson(['success' => true, 'data' => $data]);
     });
 });
