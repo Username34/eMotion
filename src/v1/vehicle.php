@@ -31,7 +31,12 @@ $app->group('/vehicle', function () use ($app){
         return $response->withJson(['success' => true, 'data' => "test"]);
     });
 
-    $app->get('/list', function (Request $request, Response $response, $args) {
+    $app->post('/list', function (Request $request, Response $response, $args) {
+        $data = $request->getParsedBody();
+        $api = new Api();
+        if (!$api->checkout($data['api_key'])){
+            return $response->withJson(['success' => false]);
+        }
         return $response->withJson(['success' => true, 'data' => Vehicles::all()]);
     });
 
