@@ -4,12 +4,11 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 
 $app->group('/list', function () use ($app) {
     $app->get('/offer', function (Request $request, Response $response, $args) {
-        $date_day = new DateTime();
         $db = connect_db($server = $this['settings']["mysql"]["server"]
             ,$this['settings']["mysql"]["user"]
             ,$this['settings']["mysql"]["pass"]
             ,$this['settings']["mysql"]["database"]);
-        $sql = "select v.`car_brand`, v.`place_number`, v.`model`, o.`date_start`, o.`price`, o.`date_end`, v.`image`  from offers as o
+        $sql = "select o.idoffer, v.`car_brand`, v.`place_number`, v.`model`, o.`date_start`, o.`price`, o.`date_end`, v.`image`  from offers as o
                 join vehicles as v
                 ON o.id_vehicle = v.idvehicle
                 where o.hidden = '0'";
