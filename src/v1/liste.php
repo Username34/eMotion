@@ -20,8 +20,3 @@ $app->get('/liste', function (Request $request, Response $response, $args) {
 
     return $response->withJson(['success' => true, 'data' => "test"]);
 });
-
-function connect_db($server, $user, $pass, $database) {
-    $connection = new mysqli($server, $user, $pass, $database);
-    return $connection;
-}

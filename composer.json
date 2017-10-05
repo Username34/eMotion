@@ -5,7 +5,6 @@
         "illuminate/database": "~5.1",
         "stripe/stripe-php": "^5.2",
 	    "phpunit/phpunit": "3.7.*",
-        "setasign/fpdi": "1.6.2",
-        "setasign/fpdf": "1.8"
+        "setasign/fpdi-fpdf": "^2.0"
     }
 }
