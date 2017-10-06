@@ -68,4 +68,11 @@ $app->group('/offer', function () use ($app) {
         return $response->withJson(['success' => true]);
     });
 
+    $app->post('/one_offer', function (Request $request, Response $response, $args) {
+        $data = $request->getParsedBody();
+        $dev = new Offers();
+        $res =  Offers::select('*')->where('idoffer', $data['id'])->get();
+        return $response->withJson(['success' => true, 'data' => $res]);
+    });
+
 });
