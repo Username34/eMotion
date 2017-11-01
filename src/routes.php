@@ -10,3 +10,4 @@ require __DIR__ . '/v1/bill.php';
 require __DIR__ . '/v1/stripe.php';
 require __DIR__ . '/v1/list.php';
 require __DIR__ . '/v1/command.php';
+require __DIR__ . '/../FPDF_Nacho/Facture_Emotion.php';
