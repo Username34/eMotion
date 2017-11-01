@@ -7,6 +7,7 @@ require __DIR__ .'/../src/model/Offers.php';
 require __DIR__ .'/../src/model/Users.php';
 require __DIR__ .'/../src/model/Bills.php';
 require __DIR__ .'/../src/model/ApiClass.php';
+require __DIR__ .'/../src/model/Commands.php';
 //class
 require __DIR__ .'/../src/class/Sprite.php';
 require __DIR__ .'/../src/class/Api.php';
