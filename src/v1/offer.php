@@ -26,20 +26,14 @@ $app->group('/offer', function () use ($app) {
     });
     $app->post('/delete', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
-        $api = new Api();
-        if (!$api->checkout($data['api_key'])){
-            return $response->withJson(['success' => false]);
-        }
+
         Offers::where('idoffer', $data['id'])->delete();
         return $response->withJson(['success' => true]);
     });
 
     $app->post('/hidden', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
-        $api = new Api();
-        if (!$api->checkout($data['api_key'])){
-            return $response->withJson(['success' => false]);
-        }
+
         Offers::where('idoffer', $data['id'])
             ->update(['hidden' => 1]);
         return $response->withJson(['success' => true]);
@@ -57,10 +51,7 @@ $app->group('/offer', function () use ($app) {
     });
     $app->post('/update', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
-        $api = new Api();
-        if (!$api->checkout($data['api_key'])){
-            return $response->withJson(['success' => false]);
-        }
+
         foreach ($data['data'] as $key => $item){
             Offers::where('idoffer', $data['id'])
                 ->update([$key => $item]);

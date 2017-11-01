@@ -23,10 +23,7 @@ $app->group('/vehicle', function () use ($app){
 
     $app->post('/delete', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
-        $api = new Api();
-        if (!$api->checkout($data['api_key'])){
-            return $response->withJson(['success' => false]);
-        }
+
          Vehicles::where('idvehicle', $data['id'])->delete();
         return $response->withJson(['success' => true, 'data' => "test"]);
     });

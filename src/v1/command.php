@@ -61,6 +61,23 @@ $app->group('/command', function () use ($app) {
         return $response->withJson(['success' => true, 'data' => $data]);
     });
 
+	    $app->post('/update', function (Request $request, Response $response, $args) {
+        $data = $request->getParsedBody();
+        foreach ($data['data'] as $key => $item){
+            Commands::where('idcommands', $data['id'])
+                ->update([$key => $item]);
+        }
+        return $response->withJson(['success' => true]);
+    });
+	
+	 $app->post('/one_command', function (Request $request, Response $response, $args) {
+        $data = $request->getParsedBody();
+        $dev = Commands::select('*')
+            ->where('idcommands', '=', $data['id'])
+            ->get();
+        return $response->withJson(['success' => true, 'data' => $dev[0]]);
+    });
+	
     $app->post('/delete', function (Request $request, Response $response, $args) {
         $data = $request->getParsedBody();
         Commands::where('idcommands', $data['id'])->delete();
