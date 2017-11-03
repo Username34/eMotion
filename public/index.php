@@ -32,5 +32,11 @@ $capsule->getContainer()->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
+// Create Transport
+$transport = Swift_MailTransport::newInstance();
+
+// Create Mailer with our Transport.
+$mailer = Swift_Mailer::newInstance($transport);
 // Run app
 $app->run();

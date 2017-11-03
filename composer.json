@@ -5,6 +5,7 @@
         "illuminate/database": "~5.1",
         "stripe/stripe-php": "^5.2",
 	    "phpunit/phpunit": "3.7.*",
-        "setasign/fpdi-fpdf": "^2.0"
+        "setasign/fpdi-fpdf": "^2.0",
+        "swiftmailer/swiftmailer": "@stable"
     }
 }
